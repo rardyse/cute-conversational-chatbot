@@ -9,7 +9,7 @@ def load_knowledge_base(file_path: str) -> dict:
         data = json.load(file)
     return data
 
-#it is going to save!!!! knowledge base back to JSON file!!! (so the memory is updated anddd pulls off)
+#it is going to save it in the knowledge base back to JSON file!!! (so the memory is updated anddd pulls off)
 def save_knowledge_base(file_path: str, data: dict):
     with open(file_path, 'w') as file:
         json.dump(data, file, indent=2)
@@ -33,7 +33,7 @@ def chatbot_response(user_input: str) -> str:
     if best_match:
         return get_answer_for_question(best_match, knowledge_base)
     else:
-        #MARIPOSAAAA is going to ask the user to provide a new answer if none is found!
+        #hte chatbot is going to ask the user to provide a new answer if none is found!
         new_answer = simpledialog.askstring("TEACH ME ╰(*°▽°*)╯", "I didn't understand your question. Could you tell me what I should answer?")
         if new_answer and new_answer.lower() != 'skip':
             knowledge_base["questions"].append({"question": user_input, "answer": new_answer})
@@ -54,25 +54,25 @@ def send_message():
         response = "OH! Well, it was a HUGE pleasure talking and learning with you! I enjoyed it SOOO much! Have a really great day and don't hesitate to talk to me again soon if you have questions or else!!! :)"
         chat_window.insert(tk.END, f"{bot_name}: {response}\n")  #that is going to display the chatbot's response
         chat_window.see(tk.END) 
-        root.after(2000, root.destroy)  #it closes the window after 3 seconds, soooo 2000 = 2 seconds (you can change the time if you want)
+        root.after(2000, root.destroy)  #it closes the window after 2 seconds, soooo 2000 = 2 seconds and so on (you can change the time if you want)
 
 
     if user_input:
-        chat_window.insert(tk.END, f"You: {user_input}\n")  # Display user input
+        chat_window.insert(tk.END, f"You: {user_input}\n")  #here you display the user input
         response = chatbot_response(user_input)
-        chat_window.insert(tk.END, f"{bot_name}: {response}\n")  # Display chatbot response
-        chat_window.see(tk.END)  # Scroll chat window to the end
+        chat_window.insert(tk.END, f"{bot_name}: {response}\n")  #same but displaying the chatbot's response
+        chat_window.see(tk.END)  #it is going to let you scroll the chat window to the end
 
-        #AN ANIMATIONNNNNNNNN cuz why not??? lets use tkinter as a whole program
+        #AN ANIMATIONNNNNNNNN bcs why not??? lets use tkinter as a whole
         animation_label = tk.Label(root, text="Sending...", font=("Helvetica", 12), fg="#333")
-        animation_label.place(x=150, y=550)  #aaadjust the position as needed!!
+        animation_label.place(x=150, y=550)  #aaadjust the position as needed!! i think this one is great
 
         i = 0
         def animate():
             nonlocal i
             animation_label.config(text="Sending... (≧∀≦)ゞ" + "." * (i % 3 + 1))
             i += 1
-            if i < 10:  #adjust the animation duration as needed
+            if i < 10:  #adjust the animation duration as needed as well
                 root.after(100, animate)
             else:
                 animation_label.destroy()
@@ -84,35 +84,40 @@ def send_message():
 
 #root = tk.Tk()  
 #root.title("Chatbot")  this 2 lines if you want smth ugly and simple
+
+#but if you want some "pepsss" here you go :
 root = tk.Tk()
 root.title("Chatbot")
 root.geometry("400x600")
-root.configure(background="#ffe6f7")
+root.configure(background="#ffe6f7") #you can change the color, this one is a baby pink
 
 #WINDOW THAT WILL DISPLAY THE CHAT
+#(root, bd=1, bg="white", width=50, height=8) #blablablablablabla (if smth simple)
+#chat_window.pack(padx=10, pady=10) #aslo smth simple that I tried at first but BORINGGGG
+
 chat_window = tk.Text(root, width=40, height=20, font=("Helvetica", 12), wrap=tk.WORD, bg="#ffe6f7", fg="#333") 
-#blablablablabalaba (root, bd=1, bg="white", width=50, height=8) (if smth simple)
-#chat_window.pack(padx=10, pady=10) smth simple
 chat_window.pack(pady=20)
 
 #input frame :))))
-# Input frame
 input_frame = tk.Frame(root, bg="#ffe6f7")
 input_frame.pack(pady=10)
 
-#input box (A BORING ONEEEE VS A CUUUUUUUTE ONE)
+#A BORING ONE : 
+#input box
 #input_box = tk.Text(root, bd=1, bg="white", width=29, height=2)
 #input_box.pack(padx=10, pady=10)
+
+#VS
+
+#a cUUUUUUUUuuuUUuute one :
 input_box = tk.Text(input_frame, width=30, height=5, font=("Helvetica", 12), wrap=tk.WORD, bg="#ffe6f7", fg="#333")
 input_box.pack(side=tk.LEFT, padx=10)
 
-#THEEEEEEEEEEE send button (same battle as before goes here hahaha)
-#send_button = tk.Button(root, text="Send", width=12, command=send_message)
-#send_button.pack()
+#THEEEEEEEEEEE send button 
 send_button = tk.Button(input_frame, text="Send", font=("Helvetica", 12), bg="#ffc5c5", fg="#333", command=send_message)
 send_button.pack(side=tk.LEFT, padx=10)
 
-# Show notice
+#here you show notice
 def show_notice():
 
     #DOESNT WORK BUT I FELT BAD DELETING IT SO IT IS NOW A COMMMENT HAHAHAH
