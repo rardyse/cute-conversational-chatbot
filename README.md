@@ -8,7 +8,7 @@ this bot is here to chat and learn from you (it looks more like a dictionary tha
 
 ## open the files :
 - personally, I used VScode, so open it with whatever program that runs python/json 
-- precisely, open both chatbot_final.py and knowledge_base.json : these are the CORE files you need for your bot 💬
+- precisely, open both chatbot_final.py and knowledge_base.json : these are the CORE files you need for your bot
 
 ## running the chatbot :
 - run the Python script by hitting "RUN" in the chatbot_final.py file (this will launch the chatbot ^^)
