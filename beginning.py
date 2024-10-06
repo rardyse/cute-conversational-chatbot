@@ -111,29 +111,31 @@ def send_message():
         chat_window.insert(tk.END, f"{bot_name}: {response}\n")
         chat_window.see(tk.END)
 
-# Set up GUI
+#construction of the GUU
 root = tk.Tk()
-root.title("Chatbot")
+root.title("Chatbot") #free to change Chatbot to any other name
 
-# Chat display window
-chat_window = tk.Text(root, bd=1, bg="white", width=50, height=8)
-chat_window.pack(padx=10, pady=10)
+#chat display window
+chat_window = tk.Text(root, bd=1, bg="white", width=50, height=8) #measures
+chat_window.pack(padx=10, pady=10) #dimensions
 
-# Input box
-input_box = tk.Text(root, bd=1, bg="white", width=29, height=2)
+#input box
+input_box = tk.Text(root, bd=1, bg="white", width=29, height=2) #same as before but now w/the input box even tho in the final one I changed it if I am not mistaken
 input_box.pack(padx=10, pady=10)
 
-# Send button
+#send button
 send_button = tk.Button(root, text="Send", width=12, command=send_message)
-send_button.pack()
+send_button.pack() #smth simple and basic nothing really joyful
 
-# Ask for bot name
+#askiiiing for the bot's name
 bot_name = simpledialog.askstring("Bot Name", "What would you like to name me?")
 
-# Load knowledge base
+#loading knowledge base within JSON
 knowledge_base = load_knowledge_base("knowledge_base.json")
 
-root.mainloop()
+root.mainloop() #execution i suppose 
+
+#I reworked the end of the coding
 
 #lets do the..... ROULEMENT DE TAMBOUR
 #GUI APPLICATION :D
